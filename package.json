@@ -3,7 +3,7 @@
   "displayName": "VS-UoP",
   "description": "Manage SSH hosts and connect to Remote SSH servers from VS Code.",
   "version": "0.1.0",
-  "publisher": "company",
+  "publisher": "uop",
   "license": "MIT",
   "icon": "media/icon.png",
   "extensionKind": [

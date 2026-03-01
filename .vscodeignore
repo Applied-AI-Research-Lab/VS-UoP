@@ -9,3 +9,4 @@ eslint.config.js
 backup.zip
 *.zip
 .DS_Store
+image.png
