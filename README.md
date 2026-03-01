@@ -1,5 +1,7 @@
 # VS-UoP: Visual Studio Code Extension
 
+![VS-UoP: Visual Studio Code Extension](image.png)
+
 VS-UoP is a TypeScript-based Visual Studio Code extension that centralizes SSH host management and streamlines connection to University of Peloponnese servers via Remote SSH.
 
 ## Features
