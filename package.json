@@ -1,0 +1,116 @@
+{
+  "name": "vs-uop",
+  "displayName": "VS-UoP",
+  "description": "Manage SSH hosts and connect to Remote SSH servers from VS Code.",
+  "version": "0.1.0",
+  "publisher": "company",
+  "license": "MIT",
+  "icon": "media/icon.png",
+  "extensionKind": [
+    "ui"
+  ],
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "gpuSshManager",
+          "title": "VS-UoP",
+          "icon": "media/icon.png"
+        }
+      ]
+    },
+    "views": {
+      "gpuSshManager": [
+        {
+          "id": "gpuSshManager.hostsView",
+          "name": "Hosts"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "gpuSshManager.addHost",
+        "title": "Add Host",
+        "icon": "$(add)"
+      },
+      {
+        "command": "gpuSshManager.removeHost",
+        "title": "Remove Host",
+        "icon": "$(remove)"
+      },
+      {
+        "command": "gpuSshManager.connectHost",
+        "title": "Connect to Host",
+        "icon": "$(plug)"
+      },
+      {
+        "command": "gpuSshManager.refreshHosts",
+        "title": "Refresh Hosts",
+        "icon": "$(refresh)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "gpuSshManager.addHost",
+          "when": "view == gpuSshManager.hostsView",
+          "group": "navigation@1"
+        },
+        {
+          "command": "gpuSshManager.removeHost",
+          "when": "view == gpuSshManager.hostsView",
+          "group": "navigation@2"
+        },
+        {
+          "command": "gpuSshManager.refreshHosts",
+          "when": "view == gpuSshManager.hostsView",
+          "group": "navigation@3"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "gpuSshManager.connectHost",
+          "when": "view == gpuSshManager.hostsView && viewItem == sshHostItem",
+          "group": "inline@1"
+        },
+        {
+          "command": "gpuSshManager.removeHost",
+          "when": "view == gpuSshManager.hostsView && viewItem == sshHostItem",
+          "group": "inline@2"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "VS-UoP",
+      "properties": {
+        "gpuSshManager.defaultIdentityFile": {
+          "type": "string",
+          "default": "~/.ssh/id_ed25519",
+          "description": "Default SSH identity file path to write to SSH config entries."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext .ts",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/vscode": "^1.95.0",
+    "@typescript-eslint/eslint-plugin": "^8.16.0",
+    "@typescript-eslint/parser": "^8.16.0",
+    "eslint": "^9.16.0",
+    "typescript": "^5.7.2",
+    "@vscode/vsce": "^2.31.0"
+  }
+}

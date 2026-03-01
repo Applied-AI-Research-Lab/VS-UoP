@@ -1,0 +1,11 @@
+.vscode/**
+.vscode-test/**
+src/**
+tsconfig.json
+.eslintrc.json
+eslint.config.js
+**/*.map
+**/*.ts
+backup.zip
+*.zip
+.DS_Store
